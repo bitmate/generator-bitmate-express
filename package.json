@@ -1,0 +1,36 @@
+{
+  "name": "generator-bitmate-express",
+  "version": "1.0.0",
+  "description": "BitMate ExpressJS Generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test",
+    "prepublish": "gulp prepublish"
+  },
+  "author": "BitMate",
+  "dependencies": {
+    "bitmate-generator": "file:../bitmate-generator"
+  },
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "chai": "^3.5.0",
+    "chai-spies": "^0.7.1",
+    "cross-spawn": "^5.0.0",
+    "gulp": "gulpjs/gulp#4.0",
+    "gulp-nsp": "^2.3.0",
+    "nyc": "^8.4.0"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.js"
+    ]
+  },
+  "nyc": {
+    "include": [
+      "generators/**/*.js"
+    ],
+    "exclude": [
+      "generators/**/templates/**"
+    ]
+  }
+}
