@@ -6,7 +6,8 @@ module.exports = bitmate.Base.extend({
     prompting: {
         bitmate() {
             this.options.server = 'express';
-            return this.serverPrompts();
+            this.options.client = (this.options.client) ? this.options.client : 'none';
+            return this.bitmatePrompts('client');
         }
     },
 
