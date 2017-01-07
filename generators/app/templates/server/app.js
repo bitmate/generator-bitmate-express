@@ -12,7 +12,9 @@ const path = require('path');
 var app = express();
 var server = http.createServer(app);
 
+require('./config/express')(app);
 require('./routes')(app);
+
 
 // Start server
 function startServer() {
