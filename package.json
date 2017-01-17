@@ -1,12 +1,12 @@
 {
   "name": "generator-bitmate-express",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "BitMate ExpressJS Generator",
   "main": "index.js",
   "author": "BitMate",
   "license": "UNICENSED",
   "dependencies": {
-    "bitmate-generator": "^1.0.0"
+    "bitmate-generator": "^1.0.1"
   },
   "devDependencies": {
     "ava": "^0.16.0",
