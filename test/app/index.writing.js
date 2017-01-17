@@ -11,7 +11,16 @@ let context;
 
 const files = [
   'server/app.js',
-  'server/routes.js'
+  'server/routes.js',
+  'server/index.js',
+  'server/components/errors/index.js',
+  'server/views/404.html',
+  'server/config/express.js',
+  'server/config/environment/index.js',
+  'server/config/environment/development.js',
+  'server/config/environment/production.js',
+  'server/config/environment/shared.js',
+  'server/config/environment/test.js'
 ];
 
 test.before(() => {
@@ -20,7 +29,7 @@ test.before(() => {
   process.chdir('../../');
 });
 
-test(`Call this.copyTemplate 2 times`, t => {
+test(`Call this.copyTemplate 11 times`, t => {
   const spy = chai.spy.on(context, 'copyTemplate');
   TestUtils.call(context, 'writing', {
     client: 'angular1'
