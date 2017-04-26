@@ -1,5 +1,6 @@
 'use strict';
 
+const path = require('path');
 const test = require('ava');
 const chai = require('chai');
 const expect = chai.expect;
@@ -12,7 +13,9 @@ let context;
 const files = [
   'server/app.js',
   'server/routes.js',
+  'server/routes.spec.js',
   'server/index.js',
+  'server/index.spec.js',
   'server/components/errors/index.js',
   'server/views/404.html',
   'server/config/express.js',
@@ -26,7 +29,7 @@ const files = [
 test.before(() => {
   context = TestUtils.mock('app');
   require('../../generators/app/index');
-  process.chdir('../../');
+  process.chdir(path.resolve(__dirname, '../../'));
 });
 
 test(`Call this.copyTemplate 11 times`, t => {

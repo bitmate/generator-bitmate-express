@@ -1,22 +1,15 @@
 'use strict';
 
-var path = require('path');
-var _ = require('lodash');
-
-function requiredProcessEnv(name) {
-  if (!process.env[name]) {
-    throw new Error('You must set the ' + name + ' environment variable');
-  }
-  return process.env[name];
-}
+const path = require('path');
+const _ = require('lodash');
 
 // All configurations will extend these options
 // ============================================
-var all = {
+const all = {
   env: process.env.NODE_ENV,
 
   // Root path of server
-  root: path.normalize(__dirname + '/../../..'),
+  root: path.resolve(__dirname, '../../..'),
 
   // Server port
   port: process.env.PORT || 9000,
@@ -29,7 +22,7 @@ var all = {
 
   // Secret for session, you will want to change this and make it an environment variable
   secrets: {
-    session: 'app' + '-secret'
+    session: 'app -secret'
   }
 
 };
@@ -39,4 +32,4 @@ var all = {
 module.exports = _.merge(
   all,
   require('./shared'),
-  require('./' + process.env.NODE_ENV + '.js') || {});
+  require(`./${process.env.NODE_ENV}.js`) || {});

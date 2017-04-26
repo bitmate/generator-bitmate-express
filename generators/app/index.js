@@ -1,4 +1,4 @@
-'use strict';
+/* eslint quote-props: 0 */  // --> OFF
 
 const bitmate = require('@oligibson/bitmate-generator');
 
@@ -41,7 +41,9 @@ module.exports = bitmate.Base.extend({
     const files = [
       'server/app.js',
       'server/routes.js',
+      'server/routes.spec.js',
       'server/index.js',
+      'server/index.spec.js',
       'server/components/errors/index.js',
       'server/views/404.html',
       'server/config/express.js',

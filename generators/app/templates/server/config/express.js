@@ -19,8 +19,8 @@ const lusca = require('lusca');
 const config = require('./environment');
 const session = require('express-session');
 
-module.exports = function(app) {
-  var env = app.get('env');
+module.exports = function (app) {
+  const env = app.get('env');
 <% if(client !== 'none') { %>
   if (env === 'development' || env === 'test') {
     app.use(express.static(path.resolve('.tmp')));
@@ -35,11 +35,11 @@ module.exports = function(app) {
 <% } %>
   app.use(morgan('dev'));
 
-  app.set('views', config.root + '/server/views');
+  app.set('views', `${config.root}/server/views`);
   app.engine('html', require('ejs').renderFile);
   app.set('view engine', 'html');
   app.use(compression());
-  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.urlencoded({extended: false}));
   app.use(bodyParser.json());
   app.use(methodOverride());
   app.use(cookieParser());
@@ -64,7 +64,7 @@ module.exports = function(app) {
       },
       xframe: 'SAMEORIGIN',
       hsts: {
-        maxAge: 31536000, //1 year, in seconds
+        maxAge: 31536000, // 1 year, in seconds
         includeSubDomains: true,
         preload: true
       },
@@ -72,7 +72,7 @@ module.exports = function(app) {
     }));
   }
 
-  if ('development' === env) {
+  if (env === 'development') {
     app.use(require('connect-livereload')({
       ignore: [
         /^\/api\/(.*)/,
@@ -82,7 +82,7 @@ module.exports = function(app) {
     }));
   }
 
-  if ('development' === env || 'test' === env) {
+  if (env === 'development' || env === 'test') {
     app.use(errorHandler()); // Error handler - has to be last
   }
-}
+};
