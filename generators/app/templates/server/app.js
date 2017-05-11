@@ -2,6 +2,7 @@
 
 const express = require('express');
 const http = require('http');
+const config = require('./config/environment');
 
 // Setup server
 const app = express();
@@ -12,8 +13,8 @@ require('./routes')(app);
 
 // Start server
 const startServer = () => {
-  app.bitmate = server.listen('9000', '0.0.0.0', () => {
-    console.log('Express server listening');
+  app.bitmate = server.listen(config.port, '0.0.0.0', () => {
+    console.log(`Express server listening on ${config.port}`);
   });
 };
 

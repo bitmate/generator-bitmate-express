@@ -24,7 +24,8 @@ module.exports = bitmate.Base.extend({
         'express-session': '^1.14.2',
         'lusca': '^1.4.1',
         'method-override': '^2.3.7',
-        'morgan': '^1.7.0'
+        'morgan': '^1.7.0',
+        'lodash': '4.17.4'
       }
     });
 
